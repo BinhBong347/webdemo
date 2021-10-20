@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import MenuComponent from './MenuComponent'
 import Home from './HomeComponent';
+import Contact from './ContactComponent';
 // import MenuFunction from './Components/MenuFunction';
 import { DISHES } from '../shared/Dished';
-import DetailDish from './DetailDish';
+import { COMMENTS } from "../shared/Comment";
+import { LEADERS } from "../shared/leaders";
+import { PROMOTIONS } from "../shared/promotion";
+// import DetailDish from './DetailDish';
 import Header from './HeaderComponent';
 import Footer from './FooterComponet';
 
@@ -16,6 +20,9 @@ class Main extends Component {
 
         this.state = {
         dishes: DISHES,
+        comments: COMMENTS,
+        promotions: PROMOTIONS,
+        leaders: LEADERS
         //selectedDish: null
         }
     }
@@ -25,10 +32,14 @@ class Main extends Component {
     // }
 
   render() {
-
+    
     const HomePage=() =>{
       return(
-        <Home/>
+        <Home
+        dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+        promo={this.state.promotions.filter((promo) => promo.featured)[0]}
+        lead={this.state.leaders.filter((lead) => lead.featured)[0]}
+         />
       );
     }
     return (
@@ -37,6 +48,7 @@ class Main extends Component {
         <Switch>
           <Route path="/home" component={HomePage}/>
           <Route exact path="/menu" component={() => <MenuComponent dishes={this.state.dishes}/>}/>
+          <Route path="/contactus" exact component={Contact} />
           <Redirect to="home"/>
         </Switch>
         {/* <MenuComponent dishes={this.state.dishes}
