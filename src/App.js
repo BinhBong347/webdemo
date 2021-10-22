@@ -15,7 +15,6 @@ class App extends Component {
           <Main/>
           {/* <MenuFunction/> */}
         </div>
-
       </BrowserRouter>
     );
 
