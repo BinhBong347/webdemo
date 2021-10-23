@@ -4,7 +4,6 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutUsComponent';
 // import MenuFunction from './Components/MenuFunction';
-
 import DetailDish from './DetailDish';
 import Header from './HeaderComponent';
 import Footer from './FooterComponet';
