@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 
 function RenderMenuList({item}){
     return(
-        <Card Link to={`/menu/${item.id}`}>
-            <CardImg width="100%" src={item.image} alt={item.name}/>
-        <CardImgOverlay>
-            <CardTitle>{item.name}</CardTitle>
-        </CardImgOverlay>
+        <Card>
+            <Link to={`/menu/${item.id}`}>
+                <CardImg width="100%" src={item.image} alt={item.name}/>
+                <CardImgOverlay>
+                    <CardTitle>{item.name}</CardTitle>
+                </CardImgOverlay>
+            </Link>
         </Card>
     )
 }

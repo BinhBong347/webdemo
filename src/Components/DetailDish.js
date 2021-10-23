@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 
 
 
-    function RenderItem({dish}) {
-        
-        if(dish) {
+
+
+function DetailDish(props) {
+
+    function RenderItem({ dish }) {
+
+        if (dish) {
             return (
                 <div className="col-12 col-md-5 m-1">
                     <Card>
                         <Card>
-                            <CardImg src={dish.image} alt={dish.name}/>
+                            <CardImg src={dish.image} alt={dish.name} />
                         </Card>
                         <CardBody>
                             <CardTitle>{dish.name}</CardTitle>
@@ -21,12 +25,12 @@ import { Link } from "react-router-dom";
 
                 </div>
             )
-        } else{return <div></div>}
+        } else { return <div></div> }
     }
-    function RenderComments({comments}) {
-        if(comments) {
-            const commentList = comments.map((comment,index) => {
-                return(
+    function RenderComments({ comments }) {
+        if (comments) {
+            const commentList = comments.map((comment, index) => {
+                return (
                     <div className="" key={index}>
                         <p>{comment.id}</p>
                         <p>{comment.comment}</p>
@@ -35,42 +39,41 @@ import { Link } from "react-router-dom";
                 )
             });
             return (
-                    <div className='col-12 col-md-5 m-1'>
-                        <h4 style={{textAlign:"center", color:"blue"}}>COMMENTS</h4>
-                        <ul className="list-unstyled">
-                            {commentList}
-                        </ul>
-                    </div>
-                
+                <div className='col-12 col-md-5 m-1'>
+                    <h4 style={{ textAlign: "center", color: "blue" }}>COMMENTS</h4>
+                    <ul className="list-unstyled">
+                        {commentList}
+                    </ul>
+                </div>
+
             )
-        } else {return <div></div>}
+        } else { return <div></div> }
     }
 
-    function DetailDish(props) {
 
-        console.log(props.dish)
-        if(props.dish != null) {
-            
-            return(
+    if (props.dish != null) {
+
+        return (
             <div className="container">
                 <div className="row">
                     <Breadcrumb>
+                        <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
                         <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
                         <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
                     </Breadcrumb>
                     <div className="col-12">
                         <h3>{props.dish.name}</h3>
-                        <hr/>
+                        <hr />
                     </div>
                 </div>
                 <div className="row">
-                    <RenderItem dish={props.dish}/>
-                    <RenderComments comments={props.comments}/>
+                    <RenderItem dish={props.dish} />
+                    <RenderComments comments={props.comments} />
                 </div>
             </div>
-            )
-        } else {return <div></div>}
-    }
+        )
+    } else { return <div></div> }
+}
 
 
 export default DetailDish;
