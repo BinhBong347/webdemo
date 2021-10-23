@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardBody, CardImg, CardText, CardTitle, BreadcrumbItem, Breadcrumb } from 'reactstrap';
 import { Link } from "react-router-dom";
+import FormModal from './CommentForm';
 
 
 
@@ -69,7 +70,9 @@ function DetailDish(props) {
                 <div className="row">
                     <RenderItem dish={props.dish} />
                     <RenderComments comments={props.comments} />
+                    <FormModal />
                 </div>
+
             </div>
         )
     } else { return <div></div> }
