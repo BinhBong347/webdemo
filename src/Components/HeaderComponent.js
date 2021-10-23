@@ -81,7 +81,7 @@ class Header extends Component {
        <Modal isOpen={this.state.isModalOpen} toggle={() => this.toggleModal()}>
          <ModalHeader>Login</ModalHeader>
          <ModalBody>
-           <Form onSubmit={this.handleLogin}>
+           <Form onSubmit={(e) => this.handleLogin(e)}>
              <FormGroup>
                <Label htmlFor="username">Username</Label>
                <Input type="text" id="username" name="username"
